@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rachen — Haircut</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ════════════════════════════
+       NAVBAR
+  ════════════════════════════ -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#hero">Rachen <span>Haircut</span></a>
+    <ul class="nav-links">
+      <li><a href="#styles">ทรงผม</a></li>
+      <li><a href="#booking">จองคิว</a></li>
+      <li><a href="#products">สินค้า</a></li>
+      <li><a href="#pricing">ราคา</a></li>
+    </ul>
+    <a class="nav-cta" href="#booking">จองคิวออนไลน์</a>
+  </nav>
+
+  <!-- ════════════════════════════
+       HERO
+  ════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-left-inner">
+        <p class="hero-eyebrow">Rachen Haircut — Chonburi</p>
+        <h1 class="hero-title">The Art of<br /><em>The Perfect</em><br />Cut.</h1>
+        <p class="hero-desc">
+          ประสบการณ์ตัดผมระดับพรีเมียม ด้วยช่างผมมืออาชีพที่ผ่านการฝึกอบรมมากกว่า 10 ปี<br />
+          ทุกทรงผมออกแบบเฉพาะเพื่อคุณ
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#booking">จองคิวเลย</a>
+          <a class="btn btn-outline" href="#styles">ดูทรงผม</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-bg"></div>
+      <div class="hero-scissors">✂</div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-lbl">ปีประสบการณ์</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">5K+</div>
+          <div class="hero-stat-lbl">ลูกค้าประจำ</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">4.9★</div>
+          <div class="hero-stat-lbl">รีวิวเฉลี่ย</div>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-text">EST<br />2026</div>
+        <div class="hero-badge-sub">Chonburi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       SECTION 1: แนะนำทรงผม
+  ════════════════════════════ -->
+  <section id="styles">
+    <div class="container">
+      <div class="styles-header fade-up">
+        <div>
+          <p class="section-label">Our Signature Styles</p>
+          <h2 class="section-title">แนะนำทรงผม</h2>
+          <div class="divider"></div>
+        </div>
+        <a class="btn btn-outline" href="#booking">จองคิวตอนนี้เลย</a>
+      </div>
+      <div class="styles-grid">
+        <div class="style-card fade-up stagger-1">
+          <div class="style-card-img c1">
+            <img src="images/mullet.jpg" alt="Mullet" 
+     style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="style-card-body">
+            <h3 class="style-card-name">Mullet</h3>
+            <p class="style-card-desc">Mullet
+ทรงผมที่ด้านหน้าและข้างสั้น แต่ด้านหลังยาว ให้ลุคเท่ มีเอกลักษณ์ เหมาะสำหรับคนที่ชอบความแตกต่างและโดดเด่น</p>
+            <span class="style-card-tag">UNIQUE</span>
+          </div>
+        </div>
+        <div class="style-card fade-up stagger-2">
+          <div class="style-card-img c2">
+            <img src="images/French Crop.jpg" alt="French Crop" 
+     style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="style-card-body">
+            <h3 class="style-card-name">French Crop</h3>
+            <p class="style-card-desc">French Crop
+ทรงสั้นทันสมัย ตัดเกรเดียนต์ข้างเรียบ หน้าผากชัดเจน ดูสะอาดเรียบร้อย เหมาะกับทุกโอกาสทั้งลำลองและทางการ
+</p>
+            <span class="style-card-tag">Modern</span>
+          </div>
+        </div>
+        <div class="style-card fade-up stagger-3">
+          <div class="style-card-img c3">
+            <img src="images/twoblock.jpg" alt="Two Block" 
+     style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="style-card-body">
+            <h3 class="style-card-name">Two Block</h3>
+            <p class="style-card-desc">Two Block
+ทรงที่ด้านบนยาวปล่อยธรรมชาติ ส่วนข้างและหลังตัดสั้นเกลี้ยง ดูเป็นระเบียบ สุภาพ เหมาะสำหรับคนทำงานหรือนักเรียน</p>
+            <span class="style-card-tag">Executive</span>
+          </div>
+        </div>
+        <div class="style-card fade-up stagger-4">
+          <div class="style-card-img c4">
+            <img src="images/taperfade.jpg" alt="Taper Fade" 
+     style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="style-card-body">
+            <h3 class="style-card-name">Taper Fade </h3>
+            <p class="style-card-desc">Taper Fade ทรงที่ค่อยๆ ไล่ระดับจากบนลงล่างอย่างนุ่มนวล ขอบเส้นชัดเจน ดูสะอาดตา เป็นทรงที่ได้รับความนิยมมากที่สุดในปัจจุบัน
+</p>
+            <span class="style-card-tag">Trending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       SECTION 2: จองคิว
+  ════════════════════════════ -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-inner">
+        <div class="booking-info fade-up">
+          <p class="section-label">Online Booking</p>
+          <h2 class="section-title">จองคิว<br />ออนไลน์</h2>
+          <div class="divider"></div>
+          <p class="booking-desc">
+            จองนัดหมายได้ง่ายๆ ล่วงหน้า ไม่ต้องรอคิวนาน เลือกช่างและเวลาได้ตามใจชอบ
+            ทีมงานจะยืนยันการจองผ่าน SMS หรือ LINE
+          </p>
+          <ul class="booking-features">
+            <li>เลือกช่างผมได้ตามต้องการ</li>
+            <li>แจ้งเตือนก่อนถึงเวลานัด 30 นาที</li>
+            <li>ยกเลิกหรือเลื่อนนัดได้ฟรี ล่วงหน้า 2 ชั่วโมง</li>
+            <li>ไม่มีค่าธรรมเนียมการจอง</li>
+            <li>รับสิทธิ์สมาชิกเมื่อจองครบ 5 ครั้ง</li>
+          </ul>
+        </div>
+        <div class="booking-form fade-up stagger-2">
+          <h3 class="form-title">กรอกข้อมูลการจอง</h3>
+
+          <div class="form-group">
+            <label class="form-label" for="f-name">ชื่อ ลูกค้า </label>
+            <input class="form-control" type="text" id="f-name" placeholder="ยกตัวอย่างเช่น บอส " />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-tel">เบอร์โทรศัพท์</label>
+              <input class="form-control" type="tel" id="f-tel" placeholder="08X-XXX-XXXX" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-date">วันที่นัด</label>
+              <input class="form-control" type="date" id="f-date" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-time">เวลา</label>
+              <div class="form-select-wrap">
+                <select class="form-select" id="f-time">
+                  <option value="">-- เลือกเวลา --</option>
+                  <option>10:00</option><option>10:30</option>
+                  <option>11:00</option><option>11:30</option>
+                  <option>12:00</option><option>13:00</option>
+                  <option>13:30</option><option>14:00</option>
+                  <option>14:30</option><option>15:00</option>
+                  <option>15:30</option><option>16:00</option>
+                  <option>17:00</option><option>17:30</option>
+                  <option>18:00</option><option>18:30</option>
+                  <option>19:00</option><option>19:30</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-barber">เลือกช่าง</label>
+              <div class="form-select-wrap">
+                <select class="form-select" id="f-barber">
+                  <option value="">-- เลือกช่าง --</option>
+                  <option>ช่าง ปริ้น (ประสบการณ์ตัด 30 ปี)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-service">บริการที่ต้องการ</label>
+            <div class="form-select-wrap">
+              <select class="form-select" id="f-service">
+                <option value="">-- เลือกบริการ --</option>
+                <option>ตัดผม </option>
+                <option>โกนหนวด </option>
+                <option>สระ +ตัด </option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-note">หมายเหตุ (ไม่บังคับ)</label>
+            <textarea class="form-control" id="f-note" rows="3"
+              placeholder="เช่น ต้องการทรงเฉพาะ หรือแจ้งข้อมูลเพิ่มเติม..."
+              style="resize:vertical"></textarea>
+          </div>
+          <button class="form-submit" onclick="handleBooking()">ยืนยันการจองคิว</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       SECTION 3: สินค้าแนะนำ
+  ════════════════════════════ -->
+  <section id="products">
+    <div class="container">
+      <div class="products-header fade-up">
+        <div>
+          <p class="section-label">Premium Grooming</p>
+          <h2 class="section-title">สินค้าแนะนำ</h2>
+          <div class="divider"></div>
+        </div>
+        <a class="btn btn-outline" href="products.html">ดูสินค้าทั้งหมด</a>
+      </div>
+      <div class="products-grid">
+        <div class="product-card fade-up stagger-1">
+          <div class="product-img">
+            <img src="images/Sale1.jpg" 
+         style="width:220px;height:220px;object-fit:cover;border-radius:4px" />
+  </div>
+          <p class="product-brand">Catmeme</p>
+          <h3 class="product-name">Bob</h3>
+          <p class="product-desc">สินค้าหมดชั่วคราว </p>
+          <div class="product-footer">
+            <div class="product-price">฿999 <span>/ ชิ้น</span></div>
+           <!-- <button class="product-add" onclick="addToCart(this)">+</button> -->
+          </div>
+        </div>
+        <div class="product-card fade-up stagger-2">
+          <div class="product-img">
+          <img src="images/nigao.webp" 
+         style="width:250px;height:250px;object-fit:cover;border-radius:4px" /> 
+  </div>
+          <p class="product-brand">NIGAO (นิกาโอะ)</p>
+          <h3 class="product-name">NIGAO Crul Lock Cream ขนาด 250 ML.</h3>
+          <p class="product-desc">สินค้าหมดชั่วคราว</p>
+          <div class="product-footer">
+            <div class="product-price">฿190 <span>/ ชิ้น</span></div>
+          <!--  <button class="product-add" onclick="addToCart(this)">+</button> -->
+          </div>
+        </div>
+        <div class="product-card fade-up stagger-3">
+          <div class="product-img">
+          <img src="images/goh2.webp" 
+         style="width:250px;height:250px;object-fit:cover;border-radius:4px" />
+  </div>
+          <p class="product-brand">Gohair</p>
+          <h3 class="product-name">Go Hair Silky Seaweed Nutrients
+ขนาด 250 ML</h3>
+          <p class="product-desc">สินค้าหมดชั่วคราว</p>
+          <div class="product-footer">
+            <div class="product-price">฿220 <span>/ ชิ้น</span></div>
+          <!--  <button class="product-add" onclick="addToCart(this)">+</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       SECTION 4: เรทราคา
+  ════════════════════════════ -->
+  <section id="pricing">
+    <div class="container">
+      <div class="pricing-inner">
+        <div class="pricing-sticky fade-up">
+          <p class="section-label">Service Menu</p>
+          <h2 class="section-title">เรทราคา<br />บริการ</h2>
+          <div class="divider"></div>
+          <p style="font-size:0.88rem;color:#888;line-height:1.9;font-weight:300;">
+            ราคาทั้งหมดสามารถจ่ายที่หน้าร้านได้เลยครับ
+          </p>
+          <div class="pricing-note">
+            🎁 <strong style="color:var(--gold)">สมาชิก Rachen Haircut</strong><br />
+            รับส่วนลด 10% ทุกบริการ และฟรีสระผม 1 ครั้ง/เดือน
+          </div>
+          <a class="btn btn-dark" href="#booking" style="margin-top:24px;display:inline-block">จองคิวตอนนี้</a>
+        </div>
+        <div class="pricing-table fade-up stagger-2">
+
+          <!-- หมวด: ตัดผม -->
+          <div class="price-category">
+            <p class="price-cat-title">✂ ตัดผม (Haircut)</p>
+            <div class="price-row">
+              <div class="price-left">
+                <div>
+                  <div class="price-name">ตัดผมผู้ใหญ่และเด็ก</div>
+                  <div class="price-time">⏱ 30–45 นาที</div>
+                </div>
+              </div>
+              <div class="price-amount">฿ 120 /฿ 80<small>เริ่มต้น</small></div>
+            </div>
+            <div class="price-row">
+              <div class="price-left">
+                <div>
+                  <div class="price-name">ดัดผม/ดัดหยิก/ดัดฟรอย</div>
+                  <div class="price-time">⏱ ขั้นต่ำ 3 ชั่วโมง</div>
+                </div>
+              </div>
+              <div class="price-amount">฿999<small>เริ่มต้น</small></div>
+            </div>
+            <div class="price-row">
+              <div class="price-left">
+                <div>
+                  <div class="price-name">สระผม</div>
+                  <div class="price-time">⏱ 10-20 นาที</div>
+                </div>
+              </div>
+              <div class="price-amount">฿50<small>เริ่มต้น</small></div>
+            </div>
+          </div>
+
+          <!-- หมวด: โกนเคราและหนวด -->
+          <div class="price-category">
+            <p class="price-cat-title">🪒 โกนเคราและหนวด (Shave)</p>
+            <div class="price-row">
+              <div class="price-left">
+                <div>
+                  <div class="price-name">Beard Trim</div>
+                  <div class="price-time">⏱ 20 นาที</div>
+                </div>
+              </div>
+          </div>
+
+  
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       FOOTER
+  ════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand-logo">THE <span>CRAFT</span></div>
+          <p class="footer-desc">
+            ร้านตัดผมชายพรีเมียมใจกลางกรุงเทพฯ<br />
+            บริการทุกวัน 10:00 – 20:00 น.<br />
+            ไม่เว้นวันหยุดนักขัตฤกษ์
+          </p>
+        </div>
+        <div>
+          <p class="footer-col-title">เมนู</p>
+          <ul class="footer-links">
+            <li><a href="#styles">แนะนำทรงผม</a></li>
+            <li><a href="#booking">จองคิวออนไลน์</a></li>
+            <li><a href="#products">สินค้าแนะนำ</a></li>
+            <li><a href="#pricing">เรทราคา</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">ติดต่อเรา</p>
+          <ul class="footer-links">
+            <li><a href="#">📍 บ้านสวน , ชลบุรี</a></li>
+            <li><a href="#">📞 0999999999</a></li>
+            <li><a href="#">💬 LINE: @RachenHC</a></li>
+            <li><a href="#">📸 Instagram: </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Rachen Haircut . All rights reserved.</span>
+        <span class="footer-copy">Designed with Seraphim .</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════
+       MODAL (ยืนยันการจอง)
+  ════════════════════════════ -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-box">
+      <div class="modal-icon">✂️</div>
+      <h3 class="modal-title">จองคิวสำเร็จ!</h3>
+      <p class="modal-desc">
+        ขอบคุณที่ไว้วางใจ Rachen Haircut<br />
+        ทางร้านจะติดต่อเมื่อถึงคิวผ่านเบอร์โทรไปนะครับ<br />
+      </p>
+      <button class="modal-close" onclick="closeModal()">ตกลง</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html> 

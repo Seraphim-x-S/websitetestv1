@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สินค้าทั้งหมด — Rachen Haircut</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --off-white:#F8F8F6;
+      --light:    #EDEDED;
+      --mid:      #C2C2C2;
+      --dark:     #3A3A3A;
+      --charcoal: #1E1E1E;
+      --black:    #0D0D0D;
+      --gold:     #B8964A;
+      --font-d: 'Cormorant Garamond', serif;
+      --font-u: 'Montserrat', sans-serif;
+      --font-b: 'Sarabun', sans-serif;
+      --tr: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--off-white); color: var(--charcoal); font-family: var(--font-b); }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: 72px; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(248,248,246,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .nav-logo {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 600;
+      color: var(--charcoal); letter-spacing: 0.12em; text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-u); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none;
+      transition: color var(--tr);
+    }
+    .nav-back:hover { color: var(--gold); }
+    .nav-back::before { content: '←'; font-size: 1rem; }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      margin-top: 72px;
+      background: var(--charcoal);
+      padding: 72px 0 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 24px,
+        rgba(255,255,255,0.015) 24px, rgba(255,255,255,0.015) 25px
+      );
+    }
+    .hero-banner-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-u); font-size: 0.62rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: var(--font-d); font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300; color: var(--white); line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-desc {
+      font-size: 0.92rem; color: #888; line-height: 1.8;
+      font-weight: 300; max-width: 480px;
+    }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── FILTER BAR ── */
+    .filter-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--light);
+      padding: 0;
+      position: sticky; top: 72px; z-index: 99;
+    }
+    .filter-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto;
+    }
+    .filter-btn {
+      padding: 18px 24px;
+      font-family: var(--font-u); font-size: 0.65rem;
+      font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--mid);
+      border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all var(--tr); white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--charcoal); }
+    .filter-btn.active { color: var(--charcoal); border-bottom-color: var(--gold); }
+    .filter-divider { width: 1px; height: 20px; background: var(--light); margin: 0 4px; }
+    .filter-count {
+      margin-left: auto; padding: 18px 0;
+      font-family: var(--font-u); font-size: 0.6rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .products-section { padding: 56px 0 100px; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--light);
+      border: 1px solid var(--light);
+    }
+    .product-card {
+      background: var(--white);
+      padding: 36px 28px 28px;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      transition: var(--tr);
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover { background: var(--off-white); }
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+    .product-card:hover .product-cta { background: var(--gold); }
+
+    /* Badge */
+    .product-badge {
+      position: absolute; top: 20px; left: 20px;
+      font-family: var(--font-u); font-size: 0.55rem;
+      font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 4px 10px;
+      background: var(--charcoal); color: var(--white);
+    }
+    .product-badge.new    { background: var(--gold); }
+    .product-badge.hot    { background: #E53935; }
+    .product-badge.sale   { background: #1976D2; }
+
+    /* Image */
+    .product-img-wrap {
+      height: 220px; display: flex;
+      align-items: center; justify-content: center;
+      overflow: hidden; margin-bottom: 24px;
+      background: var(--off-white);
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-img-wrap .emoji-placeholder {
+      font-size: 5rem; transition: transform 0.5s ease;
+    }
+    .product-card:hover .emoji-placeholder { transform: scale(1.1); }
+
+    .product-brand {
+      font-family: var(--font-u); font-size: 0.58rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: var(--font-d); font-size: 1.4rem;
+      font-weight: 400; color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .product-desc {
+      font-size: 0.83rem; color: #888;
+      line-height: 1.75; margin-bottom: 20px;
+      flex: 1;
+    }
+    .product-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .product-tag {
+      font-family: var(--font-u); font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 8px; border: 1px solid var(--light);
+      color: var(--mid);
+    }
+    .product-footer {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-top: auto;
+    }
+    .product-price {
+      font-family: var(--font-d); font-size: 1.5rem;
+      font-weight: 600; color: var(--charcoal);
+    }
+    .product-price span {
+      font-size: 0.72rem; font-family: var(--font-u);
+      color: #999; font-weight: 400; margin-left: 2px;
+    }
+    .product-cta {
+      padding: 10px 20px; background: var(--charcoal);
+      color: var(--white); border: none; cursor: pointer;
+      font-family: var(--font-u); font-size: 0.62rem;
+      font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: background var(--tr);
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      grid-column: 1/-1;
+      padding: 80px 32px; text-align: center;
+      background: var(--white);
+    }
+    .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .empty-text {
+      font-family: var(--font-d); font-size: 1.5rem;
+      font-weight: 300; color: var(--mid);
+    }
+
+    /* ── FADE IN ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.1s; }
+    .stagger-3 { transition-delay: 0.15s; }
+    .stagger-4 { transition-delay: 0.2s; }
+    .stagger-5 { transition-delay: 0.25s; }
+    .stagger-6 { transition-delay: 0.3s; }
+
+    /* ── FOOTER ── */
+    #footer { background: var(--black); padding: 48px 0 32px; }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo {
+      font-family: var(--font-d); font-size: 1.5rem;
+      font-weight: 600; color: var(--white); letter-spacing: 0.12em;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy {
+      font-family: var(--font-u); font-size: 0.62rem;
+      color: #444; letter-spacing: 0.08em;
+    }
+    .footer-link {
+      font-family: var(--font-u); font-size: 0.65rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      transition: opacity var(--tr);
+    }
+    .footer-link:hover { opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: 1fr; }
+      #navbar { padding: 0 20px; }
+      .hero-banner { padding: 48px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a class="nav-logo" href="index.html">Rachen <span>Haircut</span></a>
+    <a class="nav-back" href="index.html">กลับหน้าหลัก</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-banner">
+    <div class="hero-banner-inner">
+      <p class="hero-eyebrow">Premium Grooming Products</p>
+      <h1 class="hero-title">สินค้า<em>ทั้งหมด</em></h1>
+      <p class="hero-desc">ผลิตภัณฑ์ดูแลเส้นผมและเคราคุณภาพสูง คัดสรรมาเพื่อผู้ชายที่ใส่ใจทุกรายละเอียด</p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-section">
+    <div class="filter-inner">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">ทั้งหมด</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" onclick="filterProducts('pomade', this)">Pomade & Wax</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" onclick="filterProducts('beard', this)">เคราและหนวด</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" onclick="filterProducts('care', this)">บำรุงผม</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" onclick="filterProducts('tool', this)">อุปกรณ์</button>
+      <div class="filter-count" id="filter-count">แสดง 0 รายการ</div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid" id="products-grid">
+        <!-- render by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Rachen <span>Haircut</span></div>
+      <a class="footer-link" href="index.html">← กลับหน้าหลัก</a>
+      <span class="footer-copy">© 2025 Rachen Haircut. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+  /* ════════════════════════════════════════
+     ข้อมูลสินค้า — เพิ่ม/แก้ไขได้ที่นี่
+     emoji: ใส่ emoji หรือเปลี่ยนเป็น img src ได้
+  ════════════════════════════════════════ */
+  const products = [
+    {
+      id: 1, category: 'pomade',
+      brand: 'American Crew', name: 'Fiber Pomade',
+      desc: 'วาสลีนจัดแต่งทรงผม Hold แน่น เงาน้อย เหมาะสำหรับทรง Textured และ Messy Look ที่เป็นธรรมชาติ',
+      price: 490, unit: 'กระปุก',
+      emoji: '🪮', badge: 'hot',
+      tags: ['Hold สูง', 'เงาน้อย', 'Water-based'],
+      img: 'images/mullet.jpg' // ← ใส่ path รูปได้ที่นี่ เช่น 'images/pomade.jpg'
+    },
+    {
+      id: 2, category: 'pomade',
+      brand: 'Suavecito', name: 'Original Hold',
+      desc: 'Pomade สูตรน้ำ ล้างออกง่าย Hold ปานกลาง เงาสูง สไตล์ Slick Back คลาสสิก',
+      price: 380, unit: 'กระปุก',
+      emoji: '🧴', badge: 'new',
+      tags: ['Hold ปานกลาง', 'เงาสูง', 'ล้างง่าย'],
+      img: ''
+    },
+    {
+      id: 3, category: 'beard',
+      brand: 'Rachen Haircut', name: 'Beard Balm',
+      desc: 'บาล์มบำรุงเคราสูตร Exclusive ของร้าน ช่วยจัดทรงและบำรุงเคราให้นุ่มสวย กลิ่นไม้ Cedar อ่อนๆ',
+      price: 320, unit: 'ชิ้น',
+      emoji: '🧼', badge: '',
+      tags: ['บำรุงเครา', 'จัดทรง', 'กลิ่น Cedar'],
+      img: ''
+    },
+    {
+      id: 4, category: 'care',
+      brand: 'Kerastase', name: 'Scalp Serum',
+      desc: 'เซรั่มบำรุงหนังศีรษะ ช่วยลดอาการคัน ขจัดรังแค เร่งการเติบโตของเส้นผม',
+      price: 850, unit: 'ขวด',
+      emoji: '💊', badge: 'new',
+      tags: ['บำรุงหนังศีรษะ', 'ลดรังแค', 'เร่งผมงอก'],
+      img: ''
+    },
+    {
+      id: 5, category: 'pomade',
+      brand: 'Layrite', name: 'Superhold Pomade',
+      desc: 'Pomade Hold สูงสุด เหมาะกับผมดื้อและผมหยิก จัดทรงได้นาน ตลอดวัน',
+      price: 520, unit: 'กระปุก',
+      emoji: '💪', badge: '',
+      tags: ['Hold สูงสุด', 'ผมดื้อ', 'ทนทาน'],
+      img: ''
+    },
+    {
+      id: 6, category: 'beard',
+      brand: 'Beardbrand', name: 'Beard Oil',
+      desc: 'น้ำมันบำรุงเครา สูตรออร์แกนิก ผสมน้ำมัน Jojoba และ Argan ให้เคราเงางาม นุ่มลื่น',
+      price: 650, unit: 'ขวด',
+      emoji: '🛢️', badge: '',
+      tags: ['ออร์แกนิก', 'Jojoba Oil', 'เครานุ่ม'],
+      img: ''
+    },
+    {
+      id: 7, category: 'tool',
+      brand: 'Kent', name: 'Beard Comb',
+      desc: 'หวีไม้สักทองคุณภาพสูง ฟันหวีถี่-ห่างในอัน เดียว เหมาะสำหรับการจัดทรงเครา',
+      price: 290, unit: 'ชิ้น',
+      emoji: '🪥', badge: '',
+      tags: ['ไม้สัก', 'ฟันถี่-ห่าง', 'Handmade'],
+      img: ''
+    },
+    {
+      id: 8, category: 'care',
+      brand: 'Rachen Haircut', name: 'Hair Tonic',
+      desc: 'โทนิคบำรุงรากผม สูตรสมุนไพรไทย ช่วยลดการหลุดร่วง เพิ่มความหนาแน่นให้เส้นผม',
+      price: 380, unit: 'ขวด',
+      emoji: '🌿', badge: 'new',
+      tags: ['สมุนไพรไทย', 'ลดผมร่วง', 'บำรุงราก'],
+      img: ''
+    },
+    {
+      id: 9, category: 'tool',
+      brand: 'Mason Pearson', name: 'Boar Bristle Brush',
+      desc: 'แปรงขนหมูป่าแท้ กระตุ้นการไหลเวียนเลือดหนังศีรษะ กระจายน้ำมันธรรมชาติทั่วเส้นผม',
+      price: 1290, unit: 'ด้าม',
+      emoji: '🖌️', badge: '',
+      tags: ['ขนหมูป่าแท้', 'Premium', 'กระตุ้นเลือด'],
+      img: ''
+    },
+  ];
+
+  const badgeLabel = { hot: 'HOT', new: 'NEW', sale: 'SALE' };
+  let currentFilter = 'all';
+
+  /* ── Render ── */
+  function renderProducts(filter) {
+    const grid = document.getElementById('products-grid');
+    const list = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+    document.getElementById('filter-count').textContent = `แสดง ${list.length} รายการ`;
+
+    if (list.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <div class="empty-text">ไม่พบสินค้าในหมวดนี้</div>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = list.map((p, i) => `
+      <div class="product-card fade-up stagger-${(i % 6) + 1}">
+        ${p.badge ? `<div class="product-badge ${p.badge}">${badgeLabel[p.badge]}</div>` : ''}
+        <div class="product-img-wrap">
+          ${p.img
+            ? `<img src="${p.img}" alt="${p.name}" />`
+            : `<div class="emoji-placeholder">${p.emoji}</div>`
+          }
+        </div>
+        <p class="product-brand">${p.brand}</p>
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-tags">
+          ${p.tags.map(t => `<span class="product-tag">${t}</span>`).join('')}
+        </div>
+        <div class="product-footer">
+          <div class="product-price">฿${p.price.toLocaleString()} <span>/ ${p.unit}</span></div>
+        </div>
+      </div>`).join('');
+
+    // trigger scroll observer
+    observeCards();
+  }
+
+  /* ── Filter ── */
+  function filterProducts(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+
+  /* ── Scroll Animation ── */
+  function observeCards() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  }
+
+  /* ── Init ── */
+  renderProducts('all');
+  </script>
+</body>
+</html>
